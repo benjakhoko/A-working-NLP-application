@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Text workspace</h1>
+    <p class="page-description">Paste text or load a document, choose a natural language processing tool, and review the result with its method and statistics.</p>
+  </div>
+  <div class="page-actions">
+    <a href="{{ url_for('pages.documents') }}" class="btn btn-secondary">
+      <i class="fa-solid fa-folder-open"></i> Manage documents
+    </a>
+  </div>
+</div>
+
+<div class="workspace-grid">
+  <section class="card workspace-panel">
+    <div class="card-header">
+      <div>
+        <div class="section-title">Source text</div>
+        <div class="section-sub">Paste content or extract from a document</div>
+      </div>
+      <span class="badge badge-neutral" id="sourceBadge">Pasted text</span>
+    </div>
+
+    <div class="editor-toolbar">
+      <select class="select select-sm" id="documentSelect" aria-label="Load a document">
+        <option value="">Pasted text</option>
+      </select>
+      <button class="btn btn-secondary btn-sm ml-auto" id="uploadTrigger">
+        <i class="fa-solid fa-arrow-up-from-bracket"></i> Upload
+      </button>
+      <input type="file" id="workspaceFileInput" accept=".txt,.pdf,.docx" class="sr-only">
+    </div>
+
+    <div class="editor-meta">
+      <div class="counter-list">
+        <span><strong id="wordCount">0</strong> words</span>
+        <span><strong id="charCount">0</strong> characters</span>
+        <span class="hidden sm:inline"><strong id="sentenceCount">0</strong> sentences</span>
+      </div>
+      <span id="limitLabel">{{ config.MAX_TEXT_LENGTH|int }} character limit</span>
+    </div>
+
+    <textarea id="sourceText" class="workspace-editor" maxlength="{{ config.MAX_TEXT_LENGTH }}"
+      data-initial-document="{{ document_id or '' }}"
+      placeholder="Paste an article, report, abstract or passage here. You can also upload a TXT, PDF or DOCX document above."></textarea>
+
+    <div class="editor-footer">
+      <div class="upload-inline flex-1" id="workspaceDropzone" role="button" tabindex="0" data-max-mb="{{ (config.MAX_CONTENT_LENGTH / 1048576)|round(0)|int }}">
+        <i class="fa-solid fa-paperclip"></i> Drop a document here or click to upload
+        <div class="text-[10.5px] text-slate-400 mt-0.5">TXT, PDF, DOCX · up to {{ (config.MAX_CONTENT_LENGTH / 1048576)|round(0)|int }} MB</div>
+      </div>
+      <button class="btn btn-ghost btn-sm" id="clearText" title="Clear text and results">
+        <i class="fa-regular fa-trash-can"></i> Clear
+      </button>
+    </div>
+    <div class="px-4 pb-3 hidden" id="uploadStatus">
+      <div class="progress"><div class="progress-bar" id="uploadProgress" style="width:35%"></div></div>
+      <div class="text-[11px] text-slate-500 mt-1" id="uploadStatusText">Uploading and extracting text…</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="tool-tabs" role="tablist" aria-label="NLP tools">
+      <button class="tool-tab active" data-tool="keywords" role="tab" aria-selected="true"><i class="fa-solid fa-tags"></i> Keywords</button>
+      <button class="tool-tab" data-tool="summary" role="tab" aria-selected="false"><i class="fa-solid fa-align-left"></i> Summary</button>
+      <button class="tool-tab" data-tool="language" role="tab" aria-selected="false"><i class="fa-solid fa-language"></i> Language</button>
+      <button class="tool-tab" data-tool="sentiment" role="tab" aria-selected="false"><i class="fa-solid fa-chart-simple"></i> Sentiment</button>
+      <button class="tool-tab" data-tool="explain" role="tab" aria-selected="false"><i class="fa-solid fa-lightbulb"></i> Explain</button>
+      <button class="tool-tab" data-tool="translate" role="tab" aria-selected="false"><i class="fa-solid fa-arrow-right-arrow-left"></i> Translate</button>
+    </div>
+
+    <div class="tool-pane active" data-pane="keywords">
+      <div class="tool-heading">
+        <div>
+          <h3>Keyword extraction</h3>
+          <p>Rank the most informative terms and phrases. Compare TF-IDF, RAKE and YAKE on the same input.</p>
+        </div>
+      </div>
+      <div class="tool-config">
+        <div class="field grow">
+          <label class="label" for="keywordAlgorithm">Algorithm</label>
+          <select class="select" id="keywordAlgorithm">
+            <option value="tfidf">TF-IDF — statistical term weighting</option>
+            <option value="rake">RAKE — phrase-based extraction</option>
+            <option value="yake">YAKE — unsupervised keyword extraction</option>
+            <option value="compare">Compare all three</option>
+          </select>
+        </div>
+        <div class="field" style="max-width:120px">
+          <label class="label" for="keywordCount">Keywords</label>
+          <input class="input" type="number" id="keywordCount" value="12" min="3" max="50" step="1">
+        </div>
+        <button class="btn btn-primary" data-run data-tool="keywords">
+          <i class="fa-solid fa-play"></i> Extract
+        </button>
+      </div>
+      <p class="run-note m-0"><i class="fa-solid fa-circle-info mr-1"></i>Scores are normalised to 0–1 for display. English stop words are removed.</p>
+    </div>
+
+    <div class="tool-pane" data-pane="summary">
+      <div class="tool-heading">
+        <div>
+          <h3>Text summarisation</h3>
+          <p>Extractive mode selects original sentences. Abstractive mode generates new wording with a pretrained model.</p>
+        </div>
+      </div>
+      <div class="tool-config">
+        <div class="field grow">
+          <label class="label" for="summaryType">Summary type</label>
+          <select class="select" id="summaryType">
+            <option value="extractive">Extractive — TF-IDF + TextRank</option>
+            <option value="abstractive">Abstractive — DistilBART (Hugging Face)</option>
+          </select>
+        </div>
+        <div class="field" style="max-width:140px">
+          <label class="label" for="summaryLength">Length</label>
+          <select class="select" id="summaryLength">
+            <option value="short">Short</option>
+            <option value="medium" selected>Medium</option>
+            <option value="long">Long</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" data-run data-tool="summary">
+          <i class="fa-solid fa-play"></i> Summarise
+        </button>
+      </div>
+      <div class="notice notice-warning" id="abstractiveNote" style="display:none">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span>Abstractive summarisation loads a Hugging Face model on first use (about 1.2 GB) and can take 30–90 seconds on CPU. It requires at least 30 words.</span>
+      </div>
+      <p class="run-note m-0 mt-2"><i class="fa-solid fa-circle-info mr-1"></i>Compression is computed from actual word counts, not estimated.</p>
+    </div>
+
+    <div class="tool-pane" data-pane="language">
+      <div class="tool-heading">
+        <div>
+          <h3>Language detection</h3>
+          <p>Identify the dominant language with a Naive Bayes character n-gram classifier.</p>
+        </div>
+      </div>
+      <div class="tool-config">
+        <button class="btn btn-primary" data-run data-tool="language">
+          <i class="fa-solid fa-play"></i> Detect language
+        </button>
+      </div>
+      <p class="run-note m-0"><i class="fa-solid fa-circle-info mr-1"></i>Short or mixed-language text produces lower confidence. Coverage is limited to langdetect's bundled profiles.</p>
+    </div>
+
+    <div class="tool-pane" data-pane="sentiment">
+      <div class="tool-heading">
+        <div>
+          <h3>Sentiment analysis</h3>
+          <p>Score positive, neutral and negative language with VADER's lexicon and rules.</p>
+        </div>
+      </div>
+      <div class="tool-config">
+        <button class="btn btn-primary" data-run data-tool="sentiment">
+          <i class="fa-solid fa-play"></i> Analyse sentiment
+        </button>
+      </div>
+      <p class="run-note m-0"><i class="fa-solid fa-circle-info mr-1"></i>VADER is tuned for English. Scores describe language polarity, not a person's true emotion.</p>
+    </div>
+
+    <div class="tool-pane" data-pane="explain">
+      <div class="tool-heading">
+        <div>
+          <h3>Explanation &amp; simplification</h3>
+          <p>Rewrite a difficult passage in clearer language while preserving its meaning.</p>
+        </div>
+      </div>
+      <div class="tool-config">
+        <div class="field grow">
+          <label class="label" for="explainComplexity">Explanation level</label>
+          <select class="select" id="explainComplexity">
+            <option value="simple">Simple — shorter sentences, defined terms</option>
+            <option value="standard" selected>Standard — plain English</option>
+            <option value="detailed">Detailed — argument and terminology</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" data-run data-tool="explain">
+          <i class="fa-solid fa-play"></i> Explain
+        </button>
+      </div>
+      <p class="run-note m-0"><i class="fa-solid fa-circle-info mr-1"></i>Provider: <strong>{{ config.EXPLANATION_PROVIDER }}</strong>. If the model or API is unavailable, the system reports an error instead of inventing text.</p>
+    </div>
+
+    <div class="tool-pane" data-pane="translate">
+      <div class="tool-heading">
+        <div>
+          <h3>Translation</h3>
+          <p>Translate up to 5,000 characters using the configured translation provider.</p>
+        </div>
+      </div>
+      <div class="tool-config">
+        <div class="field">
+          <label class="label" for="translationSource">Source</label>
+          <select class="select" id="translationSource">
+            <option value="auto" selected>Detect automatically</option>
+            {% for language in languages %}
+            <option value="{{ language.code }}">{{ language.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="field">
+          <label class="label" for="translationTarget">Target</label>
+          <select class="select" id="translationTarget">
+            {% for language in languages %}
+            <option value="{{ language.code }}" {{ 'selected' if language.code == 'es' else '' }}>{{ language.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button class="btn btn-primary" data-run data-tool="translate">
+          <i class="fa-solid fa-play"></i> Translate
+        </button>
+      </div>
+      <p class="run-note m-0"><i class="fa-solid fa-circle-info mr-1"></i>Provider: <strong>{{ config.TRANSLATION_PROVIDER }}</strong>. Machine translation is not reliable for legal, medical or certified content.</p>
+    </div>
+
+    <div class="result-shell">
+      <div class="result-head">
+        <div class="result-head-title">Result</div>
+        <div class="result-actions" id="resultActions" style="display:none">
+          <button class="icon-btn" id="copyResult" title="Copy result" aria-label="Copy result"><i class="fa-regular fa-copy"></i></button>
+          <button class="icon-btn" id="downloadReport" title="Download PDF report" aria-label="Download PDF report"><i class="fa-solid fa-file-pdf"></i></button>
+          <a class="icon-btn" id="openSaved" title="Open saved analysis" href="#" aria-label="Open saved analysis"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="result-meta-line" id="resultMeta" style="display:none"></div>
+      <div class="result-body" id="resultBody">
+        <div class="result-empty">
+          <i class="fa-regular fa-square-check"></i>
+          <p>Run a tool to see its result, method and statistics here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='js/results.js') }}"></script>
+<script src="{{ url_for('static', filename='js/workspace.js') }}"></script>
+{% endblock %}

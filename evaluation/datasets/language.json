@@ -1,0 +1,20 @@
+[
+  {"id": "lang-en-1", "text": "The research team published its findings in a peer-reviewed journal after a long review process. The results suggest that regular exercise improves sleep quality in older adults.", "label": "en"},
+  {"id": "lang-en-2", "text": "Local authorities are investing in public transport to reduce traffic and improve air quality. The new buses will begin operating next spring.", "label": "en"},
+  {"id": "lang-en-3", "text": "The museum has reopened after renovation and now offers free guided tours for students. Visitors can book tickets online.", "label": "en"},
+  {"id": "lang-es-1", "text": "El gobierno anunció nuevas medidas para mejorar la educación pública en las zonas rurales. Las escuelas recibirán materiales, formación docente y acceso a internet de alta velocidad.", "label": "es"},
+  {"id": "lang-es-2", "text": "La investigación científica progresa gracias a la cooperación internacional. Las universidades comparten datos y recursos para acelerar los descubrimientos.", "label": "es"},
+  {"id": "lang-es-3", "text": "El equipo médico recomendó una dieta equilibrada y ejercicio regular para mejorar la salud cardiovascular de los pacientes.", "label": "es"},
+  {"id": "lang-fr-1", "text": "La recherche scientifique progresse grâce à la coopération internationale. Les universités partagent des données et des ressources pour accélérer les découvertes.", "label": "fr"},
+  {"id": "lang-fr-2", "text": "Le conseil municipal a approuvé un nouveau plan de transport public. Les bus électriques réduiront la circulation et la pollution dans le centre-ville.", "label": "fr"},
+  {"id": "lang-fr-3", "text": "Les étudiants ont participé à une étude sur le sommeil et la performance académique pendant un semestre entier.", "label": "fr"},
+  {"id": "lang-de-1", "text": "Die Regierung hat neue Maßnahmen zur Verbesserung der öffentlichen Bildung angekündigt. Schulen erhalten Materialien und schnelle Internetverbindungen.", "label": "de"},
+  {"id": "lang-de-2", "text": "Forschende haben ein neues Verfahren entwickelt, das die Genauigkeit medizinischer Bilder deutlich verbessert.", "label": "de"},
+  {"id": "lang-de-3", "text": "Der Stadtrat genehmigte einen Plan für elektrische Busse und neue Straßenbahnlinien, um den Verkehr zu verringern.", "label": "de"},
+  {"id": "lang-it-1", "text": "Il governo ha annunciato nuove misure per migliorare l'istruzione pubblica nelle zone rurali. Le scuole riceveranno materiali e accesso a internet veloce.", "label": "it"},
+  {"id": "lang-it-2", "text": "La ricerca scientifica avanza grazie alla cooperazione internazionale. Le università condividono dati e risorse per accelerare le scoperte.", "label": "it"},
+  {"id": "lang-it-3", "text": "Il consiglio comunale ha approvato un piano per ridurre il traffico e migliorare la qualità dell'aria in città.", "label": "it"},
+  {"id": "lang-pt-1", "text": "O governo anunciou novas medidas para melhorar a educação pública nas zonas rurais. As escolas receberão materiais e acesso à internet de alta velocidade.", "label": "pt"},
+  {"id": "lang-pt-2", "text": "A pesquisa científica avança graças à cooperação internacional. As universidades partilham dados e recursos para acelerar as descobertas.", "label": "pt"},
+  {"id": "lang-pt-3", "text": "A câmara municipal aprovou um plano de transporte público com autocarros elétricos e novas linhas de elétrico.", "label": "pt"}
+]

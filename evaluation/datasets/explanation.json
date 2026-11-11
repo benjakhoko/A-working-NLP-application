@@ -1,0 +1,17 @@
+[
+  {
+    "id": "exp-01",
+    "text": "The mitochondrion is a double-membrane-bound organelle found in most eukaryotic organisms. It generates most of the cell's supply of adenosine triphosphate, which is used as a source of chemical energy. Mitochondria contain their own genetic material and are thought to have originated from free-living bacteria that were engulfed by an ancestral host cell.",
+    "gold_terms": ["mitochondrion", "organelle", "adenosine triphosphate", "chemical energy", "genetic material", "bacteria"]
+  },
+  {
+    "id": "exp-02",
+    "text": "Inflation is the rate at which the general level of prices for goods and services rises. When inflation is high, each unit of currency buys fewer goods and services, which reduces purchasing power. Central banks often respond by raising interest rates, making borrowing more expensive and dampening demand.",
+    "gold_terms": ["inflation", "prices", "currency", "purchasing power", "central banks", "interest rates"]
+  },
+  {
+    "id": "exp-03",
+    "text": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesise nutrients from carbon dioxide and water. Chlorophyll absorbs light energy, which drives a series of chemical reactions that produce glucose and release oxygen as a by-product.",
+    "gold_terms": ["photosynthesis", "sunlight", "carbon dioxide", "chlorophyll", "glucose", "oxygen"]
+  }
+]

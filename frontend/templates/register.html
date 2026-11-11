@@ -1,0 +1,45 @@
+{% extends "auth_base.html" %}
+{% block auth_content %}
+<div class="auth-title">Create your account</div>
+<p class="auth-subtitle">Set up a private workspace for documents and analyses.</p>
+
+<div id="authError" class="notice notice-danger mb-4 hidden" role="alert">
+  <i class="fa-solid fa-circle-exclamation"></i><span id="authErrorText"></span>
+</div>
+
+<form id="registerForm" class="auth-form" novalidate>
+  <div class="field" data-field="full_name">
+    <label class="label" for="full_name">Full name</label>
+    <input class="input" type="text" id="full_name" name="full_name" autocomplete="name" placeholder="Alex Morgan" required>
+    <div class="field-error" data-error></div>
+  </div>
+  <div class="field" data-field="email">
+    <label class="label" for="email">Email address</label>
+    <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="name@university.edu" required>
+    <div class="field-error" data-error></div>
+  </div>
+  <div class="field" data-field="password">
+    <label class="label" for="password">Password</label>
+    <div class="input-group">
+      <input class="input" type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 8 characters" required>
+      <button type="button" class="input-group-btn" data-toggle-password="password" aria-label="Show password">
+        <i class="fa-regular fa-eye"></i>
+      </button>
+    </div>
+    <div class="hint">Use at least 8 characters, including one letter and one number.</div>
+    <div class="field-error" data-error></div>
+  </div>
+  <div class="field" data-field="confirm_password">
+    <label class="label" for="confirm_password">Confirm password</label>
+    <input class="input" type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" placeholder="Repeat your password" required>
+    <div class="field-error" data-error></div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block" id="registerButton">
+    <span>Create account</span><i class="fa-solid fa-arrow-right"></i>
+  </button>
+</form>
+
+<div class="auth-alt">
+  Already registered? <a class="link" href="{{ url_for('pages.login') }}">Sign in</a>
+</div>
+{% endblock %}

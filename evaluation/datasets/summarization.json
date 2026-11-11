@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sum-remote-work",
+    "title": "Remote work and productivity",
+    "text": "Remote work became a global experiment during the pandemic, and organisations are still debating its long-term effects. Early studies found that many employees maintained or improved productivity when working from home, particularly on focused individual tasks. However, collaboration suffered when teams relied only on scheduled video meetings, and newer employees reported difficulty learning informal norms. Hybrid arrangements attempt to combine the advantages of quiet home working with the social benefits of an office. Managers now face a coordination problem: they must decide which activities require physical presence and which can be done remotely. The evidence suggests that productivity depends less on location than on clear goals, trust and well-designed communication practices.",
+    "reference_summary": "Remote work can sustain productivity for focused tasks, but collaboration and informal learning may suffer. Hybrid models work best when managers match activities to the right setting and support clear goals and communication."
+  },
+  {
+    "id": "sum-coral-reefs",
+    "title": "Coral reef restoration",
+    "text": "Coral reefs support an extraordinary share of marine biodiversity, yet rising sea temperatures are causing widespread bleaching. When corals expel their symbiotic algae, they lose both colour and their main source of energy. Scientists are testing restoration methods that grow heat-tolerant coral fragments in nurseries and transplant them onto damaged reefs. These projects can accelerate recovery at a local scale, but they cannot compensate for continued ocean warming. Researchers therefore argue that restoration must be combined with emissions reduction and better management of fishing and coastal development. Community involvement is also important, because local fishers and tour operators often have detailed knowledge of reef conditions and a direct interest in protecting them.",
+    "reference_summary": "Coral restoration can help damaged reefs recover locally, but it cannot offset continued ocean warming. Effective conservation therefore requires emissions cuts, responsible coastal management and participation from local communities."
+  },
+  {
+    "id": "sum-microplastics",
+    "title": "Microplastics in freshwater",
+    "text": "Microplastics have been found in rivers, lakes and even remote mountain streams. Most particles originate from the breakdown of larger plastic items, synthetic textiles and tyre wear, rather than from a single obvious source. Researchers sample water and sediment, then use spectroscopy to identify polymer types and estimate concentrations. The health effects on humans remain uncertain, although laboratory studies show that very small particles can cross biological barriers and cause inflammation in some organisms. Reducing plastic pollution requires action at several levels: better waste collection, filters at wastewater treatment plants, product design that uses less disposable plastic, and international agreements that address transboundary pollution. Monitoring is essential because policymakers cannot manage a contaminant they cannot measure.",
+    "reference_summary": "Microplastics are widespread in freshwater and come from diverse sources such as textiles, tyres and plastic waste. Their health effects are uncertain, so reducing pollution requires better waste systems, filtration, product design and sustained monitoring."
+  },
+  {
+    "id": "sum-public-libraries",
+    "title": "The changing role of public libraries",
+    "text": "Public libraries have always been more than buildings full of books. In many communities they provide internet access, literacy programmes, quiet study space and help with official paperwork. Digital services have expanded their reach, allowing readers to borrow e-books and access databases from home. At the same time, libraries face pressure on budgets and must justify their value in measurable terms. Librarians argue that traditional metrics such as book loans miss the social value of a safe public space and the assistance given to people who cannot navigate online services alone. The most successful libraries have responded by partnering with schools, health services and local charities, turning themselves into community hubs rather than passive repositories.",
+    "reference_summary": "Public libraries provide digital access, learning support and safe community space in addition to books. Their social value is often underestimated by loan statistics, and partnerships help them function as community hubs."
+  },
+  {
+    "id": "sum-vaccination",
+    "title": "Vaccination and public trust",
+    "text": "Vaccination programmes depend on public trust as much as on scientific evidence. A vaccine may be safe and effective, but uptake will be low if people doubt the motives of health authorities or cannot easily reach a clinic. Research on communication shows that simply repeating facts is rarely enough to change a hesitant person's mind. Trusted local figures, clear explanations of risks and benefits, and convenient access all matter. Misinformation spreads quickly online, and correcting it requires sustained engagement rather than a single campaign. Health systems are therefore investing in community outreach, transparent reporting of side effects and partnerships with general practitioners. The goal is not to eliminate all uncertainty, but to help people make informed decisions and to maintain confidence when unexpected safety signals emerge.",
+    "reference_summary": "Vaccination success depends on trust, access and communication as well as scientific effectiveness. Building confidence requires trusted local messengers, transparent reporting and sustained community engagement rather than one-off campaigns."
+  }
+]

@@ -1,0 +1,30 @@
+# Core web framework
+Flask>=3.1,<4
+Flask-SQLAlchemy>=3.1,<4
+Flask-Migrate>=4.1,<5
+Flask-WTF>=1.2,<2
+Flask-Limiter>=3.8,<5
+PyMySQL>=1.1,<2
+python-dotenv>=1.0,<2
+
+# NLP and machine learning
+nltk>=3.9,<4
+spacy>=3.8,<4
+scikit-learn>=1.5,<2
+yake>=0.4.8,<1
+rake-nltk>=1.0.6,<2
+langdetect>=1.0.9,<2
+transformers>=4.44,<5
+torch>=2.2          # install the CPU wheel from pytorch.org for local use
+sentencepiece>=0.2,<1
+numpy>=1.26
+
+# Document processing and reports
+PyMuPDF>=1.24,<3
+python-docx>=1.1,<2
+reportlab>=4.2,<6
+requests>=2.32,<3
+
+# Testing and production server
+pytest>=8.3,<10
+waitress>=3.0,<4

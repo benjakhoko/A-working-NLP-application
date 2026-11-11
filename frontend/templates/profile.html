@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Profile &amp; settings</h1>
+    <p class="page-description">Manage your account details, password and workspace. Changes are saved to your user record.</p>
+  </div>
+</div>
+
+<div class="profile-grid">
+  <aside class="card">
+    <div class="profile-summary">
+      <div class="profile-avatar" id="profileInitials">{{ current_user.full_name[0]|upper }}</div>
+      <div class="profile-name" id="profileName">{{ current_user.full_name }}</div>
+      <div class="profile-email" id="profileEmail">{{ current_user.email }}</div>
+      <div class="inline-8 justify-center mt-3">
+        <span class="badge {{ 'badge-violet' if current_user.is_admin else 'badge-neutral' }}">
+          <i class="fa-solid {{ 'fa-shield-halved' if current_user.is_admin else 'fa-user' }}"></i>
+          {{ 'Administrator' if current_user.is_admin else 'Member' }}
+        </span>
+      </div>
+      <div class="profile-meta">
+        <div class="meta-row"><span>Joined</span><strong>{{ current_user.created_at.strftime('%d %b %Y') }}</strong></div>
+        <div class="meta-row"><span>Documents</span><strong id="profileDocumentCount">—</strong></div>
+        <div class="meta-row"><span>Analyses</span><strong id="profileAnalysisCount">—</strong></div>
+        <div class="meta-row"><span>Session</span><strong>Cookie-based</strong></div>
+      </div>
+      {% if current_user.is_admin %}
+      <a href="{{ url_for('pages.admin_users') }}" class="btn btn-secondary btn-sm btn-block mt-4"><i class="fa-solid fa-shield-halved"></i> User administration</a>
+      {% endif %}
+    </div>
+  </aside>
+
+  <div class="stack-16">
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <div class="section-title">Account details</div>
+          <div class="section-sub">Used for sign-in and report headers</div>
+        </div>
+      </div>
+      <form class="card-body" id="profileForm" novalidate>
+        <div class="form-grid">
+          <div class="field" data-field="full_name">
+            <label class="label" for="profileFullName">Full name</label>
+            <input class="input" id="profileFullName" type="text" value="{{ current_user.full_name }}" autocomplete="name" required>
+            <div class="field-error" data-error></div>
+          </div>
+          <div class="field" data-field="email">
+            <label class="label" for="profileEmailInput">Email address</label>
+            <input class="input" id="profileEmailInput" type="email" value="{{ current_user.email }}" autocomplete="email" required>
+            <div class="field-error" data-error></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="saveProfile"><i class="fa-solid fa-floppy-disk"></i> Save changes</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div>
+          <div class="section-title">Change password</div>
+          <div class="section-sub">Minimum 8 characters with a letter and a number</div>
+        </div>
+      </div>
+      <form class="card-body" id="passwordForm" novalidate>
+        <div class="field" data-field="current_password">
+          <label class="label" for="currentPassword">Current password</label>
+          <input class="input" id="currentPassword" type="password" autocomplete="current-password" required>
+          <div class="field-error" data-error></div>
+        </div>
+        <div class="form-grid">
+          <div class="field" data-field="new_password">
+            <label class="label" for="newPassword">New password</label>
+            <input class="input" id="newPassword" type="password" autocomplete="new-password" required>
+            <div class="field-error" data-error></div>
+          </div>
+          <div class="field" data-field="confirm_password">
+            <label class="label" for="confirmPassword">Confirm new password</label>
+            <input class="input" id="confirmPassword" type="password" autocomplete="new-password" required>
+            <div class="field-error" data-error></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="savePassword"><i class="fa-solid fa-key"></i> Update password</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <div class="section-title">Security &amp; data</div>
+      </div>
+      <div class="card-body stack-12">
+        <div class="notice notice-info">
+          <i class="fa-solid fa-lock"></i>
+          <span>Passwords are hashed with PBKDF2-SHA256. Session cookies are HttpOnly and SameSite; JSON requests are protected by a CSRF token.</span>
+        </div>
+        <div class="notice notice-neutral" style="background:var(--surface-alt);border-color:var(--line);color:var(--muted)">
+          <i class="fa-solid fa-database"></i>
+          <span>Documents are private to your account. Extracted text and analyses are deleted when you remove a document or history record.</span>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}

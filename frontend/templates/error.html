@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ code }} · {{ app_name }}</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body class="auth-body">
+  <div class="min-h-screen flex items-center justify-center px-6" style="background:var(--canvas)">
+    <div class="text-center" style="max-width:520px">
+      <div class="inline-flex items-center gap-2.5 mb-8">
+        <div class="brand-mark">Va</div>
+        <div class="text-left">
+          <div class="brand-name" style="color:var(--navy)">Verba</div>
+          <div class="brand-sub">Intelligent Text Analysis</div>
+        </div>
+      </div>
+      <div class="mono text-[13px] tracking-widest text-slate-400 mb-3">ERROR {{ code }}</div>
+      <h1 class="text-[26px] font-semibold mb-2">{{ message }}</h1>
+      <p class="text-[13px] text-slate-500 leading-relaxed mb-7">
+        The request could not be completed. Return to your workspace or sign in again if your session has expired.
+      </p>
+      <div class="inline-8 justify-center">
+        <a href="{{ url_for('pages.dashboard') }}" class="btn btn-primary"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
+        <a href="{{ url_for('pages.workspace') }}" class="btn btn-secondary"><i class="fa-solid fa-pen-nib"></i> Workspace</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1622 @@
+{
+  "environment": {
+    "python": "3.13.8",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "packages": {
+      "Flask": "3.1.3",
+      "nltk": "3.10.4",
+      "spacy": "3.8.18",
+      "scikit-learn": "1.9.1",
+      "transformers": "4.55.4",
+      "torch": "2.15.0+cpu",
+      "langdetect": "1.0.9",
+      "yake": "0.7.3",
+      "rake-nltk": "1.0.6",
+      "rouge-score": "0.1.2",
+      "numpy": "2.5.4"
+    },
+    "generated_at": "2026-11-07T08:49:50.649777+00:00",
+    "seed": 42
+  },
+  "keywords": {
+    "dataset_size": 8,
+    "top_n": 10,
+    "algorithms": {
+      "tfidf": {
+        "label": "TF-IDF",
+        "strict": {
+          "macro_precision": 0.15,
+          "macro_recall": 0.15,
+          "macro_f1": 0.15,
+          "micro_precision": 0.15,
+          "micro_recall": 0.15,
+          "micro_f1": 0.15
+        },
+        "soft": {
+          "macro_precision": 0.475,
+          "macro_recall": 0.3625,
+          "macro_f1": 0.4112,
+          "micro_precision": 0.475,
+          "micro_recall": 0.3625,
+          "micro_f1": 0.4112
+        },
+        "mean_latency_seconds": 0.0156,
+        "documents": [
+          {
+            "id": "kw-ai-health",
+            "predictions": [
+              "clinical",
+              "hospitals",
+              "model",
+              "patient",
+              "artificial",
+              "artificial intelligence",
+              "care",
+              "changing",
+              "changing hospitals",
+              "deliver"
+            ],
+            "gold": [
+              "artificial intelligence",
+              "machine learning",
+              "medical imaging",
+              "diagnosis",
+              "clinicians",
+              "data privacy",
+              "interpretability",
+              "algorithms",
+              "clinical validation",
+              "patient safety"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.3,
+              "hits": 4,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-climate",
+            "predictions": [
+              "energy",
+              "grid",
+              "solar",
+              "wind",
+              "electricity",
+              "debate",
+              "debate focuses",
+              "fairness",
+              "fairness reliability",
+              "focuses"
+            ],
+            "gold": [
+              "renewable energy",
+              "solar power",
+              "wind farms",
+              "electricity",
+              "battery technology",
+              "grid storage",
+              "carbon emissions",
+              "climate policy",
+              "investment",
+              "fossil fuels"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.5,
+              "hits": 5,
+              "recalled_gold": 5
+            }
+          },
+          {
+            "id": "kw-economics",
+            "predictions": [
+              "inflation",
+              "bank",
+              "central",
+              "central bank",
+              "risk",
+              "whether",
+              "prices",
+              "inflation slowed",
+              "remains",
+              "remains target"
+            ],
+            "gold": [
+              "inflation",
+              "central bank",
+              "interest rates",
+              "consumer spending",
+              "labour market",
+              "wages",
+              "recession",
+              "supply chain",
+              "services inflation",
+              "monetary policy"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.3,
+              "hits": 5,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-education",
+            "predictions": [
+              "students",
+              "learning",
+              "online",
+              "accessibility",
+              "accessibility essential",
+              "digital",
+              "digital literacy",
+              "disabilities",
+              "disabilities neutral",
+              "essential"
+            ],
+            "gold": [
+              "online learning",
+              "higher education",
+              "blended learning",
+              "student engagement",
+              "feedback",
+              "formative assessment",
+              "digital literacy",
+              "accessibility",
+              "teacher training",
+              "learning outcomes"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.6,
+              "recall": 0.5,
+              "hits": 6,
+              "recalled_gold": 5
+            }
+          },
+          {
+            "id": "kw-cybersecurity",
+            "predictions": [
+              "security",
+              "data",
+              "although",
+              "although substitute",
+              "awareness",
+              "awareness training",
+              "controls",
+              "helps",
+              "helps although",
+              "regular"
+            ],
+            "gold": [
+              "phishing",
+              "ransomware",
+              "credentials",
+              "multi-factor authentication",
+              "zero trust",
+              "incident response",
+              "encryption",
+              "vulnerabilities",
+              "security awareness",
+              "data breach"
+            ],
+            "strict": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "hits": 0,
+              "recalled_gold": 0
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.2,
+              "hits": 3,
+              "recalled_gold": 2
+            }
+          },
+          {
+            "id": "kw-nutrition",
+            "predictions": [
+              "many",
+              "participants",
+              "health",
+              "advice",
+              "dietary",
+              "associated",
+              "associated better",
+              "better",
+              "better cardiovascular",
+              "cardiovascular"
+            ],
+            "gold": [
+              "mediterranean diet",
+              "cardiovascular health",
+              "whole grains",
+              "processed foods",
+              "clinical trial",
+              "participants",
+              "blood pressure",
+              "dietary pattern",
+              "fibre",
+              "public health"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.4,
+              "hits": 4,
+              "recalled_gold": 4
+            }
+          },
+          {
+            "id": "kw-transport",
+            "predictions": [
+              "city",
+              "plan",
+              "centre",
+              "city centre",
+              "congestion",
+              "congestion lower",
+              "emissions",
+              "emissions city",
+              "expect",
+              "expect investment"
+            ],
+            "gold": [
+              "city council",
+              "public transport",
+              "electric buses",
+              "tram lines",
+              "congestion",
+              "emissions",
+              "urban planning",
+              "accessibility",
+              "commuters",
+              "ticketing system"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.3,
+              "hits": 5,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-astronomy",
+            "predictions": [
+              "observations",
+              "habitable",
+              "planet",
+              "star",
+              "atmosphere",
+              "atmosphere search",
+              "biosignature",
+              "estimate",
+              "estimate atmosphere",
+              "follow-up"
+            ],
+            "gold": [
+              "astronomers",
+              "exoplanet",
+              "star",
+              "habitable zone",
+              "transit method",
+              "telescope",
+              "spectroscopy",
+              "atmosphere",
+              "biosignature",
+              "planetary system"
+            ],
+            "strict": {
+              "precision": 0.3,
+              "recall": 0.3,
+              "hits": 3,
+              "recalled_gold": 3
+            },
+            "soft": {
+              "precision": 0.6,
+              "recall": 0.4,
+              "hits": 6,
+              "recalled_gold": 4
+            }
+          }
+        ]
+      },
+      "rake": {
+        "label": "RAKE",
+        "strict": {
+          "macro_precision": 0.0625,
+          "macro_recall": 0.0625,
+          "macro_f1": 0.0625,
+          "micro_precision": 0.0625,
+          "micro_recall": 0.0625,
+          "micro_f1": 0.0625
+        },
+        "soft": {
+          "macro_precision": 0.3875,
+          "macro_recall": 0.3875,
+          "macro_f1": 0.3875,
+          "micro_precision": 0.3875,
+          "micro_recall": 0.3875,
+          "micro_f1": 0.3875
+        },
+        "mean_latency_seconds": 0.0011,
+        "documents": [
+          {
+            "id": "kw-ai-health",
+            "predictions": [
+              "clinicians welcome faster triage",
+              "running clinical validation studies",
+              "hospitals deliver patient care",
+              "patient safety depends",
+              "yet careful evaluation",
+              "support early diagnosis",
+              "reliable evidence rather",
+              "machine learning models",
+              "drafting governance rules",
+              "developing transparent algorithms"
+            ],
+            "gold": [
+              "artificial intelligence",
+              "machine learning",
+              "medical imaging",
+              "diagnosis",
+              "clinicians",
+              "data privacy",
+              "interpretability",
+              "algorithms",
+              "clinical validation",
+              "patient safety"
+            ],
+            "strict": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "hits": 0,
+              "recalled_gold": 0
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.3,
+              "hits": 3,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-climate",
+            "predictions": [
+              "new generation capacity",
+              "many analysts expected",
+              "carbon emissions depends",
+              "balance variable output",
+              "supports investment",
+              "supporters respond",
+              "several countries",
+              "rising quickly",
+              "renewable energy",
+              "remain part"
+            ],
+            "gold": [
+              "renewable energy",
+              "solar power",
+              "wind farms",
+              "electricity",
+              "battery technology",
+              "grid storage",
+              "carbon emissions",
+              "climate policy",
+              "investment",
+              "fossil fuels"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.3,
+              "hits": 3,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-economics",
+            "predictions": [
+              "policymakers raised interest rates",
+              "supply chain disruptions",
+              "delaying large purchases",
+              "cool consumer spending",
+              "helps goods prices",
+              "bring prices",
+              "weak growth",
+              "target set",
+              "take effect",
+              "still tight"
+            ],
+            "gold": [
+              "inflation",
+              "central bank",
+              "interest rates",
+              "consumer spending",
+              "labour market",
+              "wages",
+              "recession",
+              "supply chain",
+              "services inflation",
+              "monetary policy"
+            ],
+            "strict": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "hits": 0,
+              "recalled_gold": 0
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.3,
+              "hits": 3,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-education",
+            "predictions": [
+              "simply reproducing lectures online",
+              "helps students identify gaps",
+              "student engagement depends",
+              "short weekly quizzes",
+              "online learning",
+              "excludes students",
+              "teachers report",
+              "teacher training",
+              "stakes examinations",
+              "regular feedback"
+            ],
+            "gold": [
+              "online learning",
+              "higher education",
+              "blended learning",
+              "student engagement",
+              "feedback",
+              "formative assessment",
+              "digital literacy",
+              "accessibility",
+              "teacher training",
+              "learning outcomes"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.4,
+              "hits": 4,
+              "recalled_gold": 4
+            }
+          },
+          {
+            "id": "kw-cybersecurity",
+            "predictions": [
+              "spread across shared drives",
+              "better incident response plans",
+              "data breach scenario tend",
+              "encryption protects data",
+              "zero trust architecture",
+              "gain initial access",
+              "weak passwords",
+              "unpatched vulnerabilities",
+              "technical controls",
+              "security teams"
+            ],
+            "gold": [
+              "phishing",
+              "ransomware",
+              "credentials",
+              "multi-factor authentication",
+              "zero trust",
+              "incident response",
+              "encryption",
+              "vulnerabilities",
+              "security awareness",
+              "data breach"
+            ],
+            "strict": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "hits": 0,
+              "recalled_gold": 0
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.4,
+              "hits": 4,
+              "recalled_gold": 4
+            }
+          },
+          {
+            "id": "kw-nutrition",
+            "predictions": [
+              "structured dietary pattern",
+              "single universal prescription",
+              "public health advice",
+              "measured blood pressure",
+              "many observational studies",
+              "local circumstances rather",
+              "limiting processed foods",
+              "fibre intake increased",
+              "dietary patterns interact",
+              "better cardiovascular health"
+            ],
+            "gold": [
+              "mediterranean diet",
+              "cardiovascular health",
+              "whole grains",
+              "processed foods",
+              "clinical trial",
+              "participants",
+              "blood pressure",
+              "dietary pattern",
+              "fibre",
+              "public health"
+            ],
+            "strict": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "hits": 0,
+              "recalled_gold": 0
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.5,
+              "hits": 5,
+              "recalled_gold": 5
+            }
+          },
+          {
+            "id": "kw-transport",
+            "predictions": [
+              "urban planning experts welcomed",
+              "modes without paying twice",
+              "includes bus priority lanes",
+              "add twelve electric buses",
+              "unified ticketing system",
+              "local businesses asked",
+              "including level boarding",
+              "clearer construction timeline",
+              "city council approved",
+              "public transport plan"
+            ],
+            "gold": [
+              "city council",
+              "public transport",
+              "electric buses",
+              "tram lines",
+              "congestion",
+              "emissions",
+              "urban planning",
+              "accessibility",
+              "commuters",
+              "ticketing system"
+            ],
+            "strict": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "hits": 0,
+              "recalled_gold": 0
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.5,
+              "hits": 5,
+              "recalled_gold": 5
+            }
+          },
+          {
+            "id": "kw-astronomy",
+            "predictions": [
+              "nearby star within",
+              "host star",
+              "transit method",
+              "small dip",
+              "poorly understood",
+              "planetary system",
+              "liquid water",
+              "help estimate",
+              "exoplanet orbiting",
+              "distinguish evidence"
+            ],
+            "gold": [
+              "astronomers",
+              "exoplanet",
+              "star",
+              "habitable zone",
+              "transit method",
+              "telescope",
+              "spectroscopy",
+              "atmosphere",
+              "biosignature",
+              "planetary system"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.4,
+              "hits": 4,
+              "recalled_gold": 4
+            }
+          }
+        ]
+      },
+      "yake": {
+        "label": "YAKE",
+        "strict": {
+          "macro_precision": 0.1625,
+          "macro_recall": 0.1625,
+          "macro_f1": 0.1625,
+          "micro_precision": 0.1625,
+          "micro_recall": 0.1625,
+          "micro_f1": 0.1625
+        },
+        "soft": {
+          "macro_precision": 0.4,
+          "macro_recall": 0.3,
+          "macro_f1": 0.3429,
+          "micro_precision": 0.4,
+          "micro_recall": 0.3,
+          "micro_f1": 0.3429
+        },
+        "mean_latency_seconds": 0.1452,
+        "documents": [
+          {
+            "id": "kw-ai-health",
+            "predictions": [
+              "deliver patient care",
+              "Artificial intelligence",
+              "intelligence is changing",
+              "patient care",
+              "hospitals deliver patient",
+              "hospitals deliver",
+              "deliver patient",
+              "Artificial",
+              "care",
+              "Machine learning models"
+            ],
+            "gold": [
+              "artificial intelligence",
+              "machine learning",
+              "medical imaging",
+              "diagnosis",
+              "clinicians",
+              "data privacy",
+              "interpretability",
+              "algorithms",
+              "clinical validation",
+              "patient safety"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.2,
+              "hits": 3,
+              "recalled_gold": 2
+            }
+          },
+          {
+            "id": "kw-climate",
+            "predictions": [
+              "analysts expected",
+              "expanding faster",
+              "Renewable energy",
+              "energy is expanding",
+              "Renewable",
+              "expected",
+              "expanding",
+              "faster",
+              "analysts",
+              "grid storage"
+            ],
+            "gold": [
+              "renewable energy",
+              "solar power",
+              "wind farms",
+              "electricity",
+              "battery technology",
+              "grid storage",
+              "carbon emissions",
+              "climate policy",
+              "investment",
+              "fossil fuels"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.2,
+              "hits": 3,
+              "recalled_gold": 2
+            }
+          },
+          {
+            "id": "kw-economics",
+            "predictions": [
+              "slowed but remains",
+              "target set",
+              "central bank",
+              "Policymakers raised interest",
+              "raised interest rates",
+              "cool consumer spending",
+              "Inflation",
+              "Policymakers raised",
+              "wages are growing",
+              "slowed"
+            ],
+            "gold": [
+              "inflation",
+              "central bank",
+              "interest rates",
+              "consumer spending",
+              "labour market",
+              "wages",
+              "recession",
+              "supply chain",
+              "services inflation",
+              "monetary policy"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.5,
+              "hits": 4,
+              "recalled_gold": 5
+            }
+          },
+          {
+            "id": "kw-education",
+            "predictions": [
+              "higher education",
+              "blended format",
+              "permanent part",
+              "part of higher",
+              "education",
+              "format",
+              "student engagement depends",
+              "clear structure",
+              "regular feedback",
+              "opportunities for discussion"
+            ],
+            "gold": [
+              "online learning",
+              "higher education",
+              "blended learning",
+              "student engagement",
+              "feedback",
+              "formative assessment",
+              "digital literacy",
+              "accessibility",
+              "teacher training",
+              "learning outcomes"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.4,
+              "recall": 0.3,
+              "hits": 4,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-cybersecurity",
+            "predictions": [
+              "gain initial access",
+              "Phishing remains",
+              "corporate network",
+              "attackers to gain",
+              "gain initial",
+              "initial access",
+              "Phishing",
+              "network",
+              "reveal credentials",
+              "shared drives"
+            ],
+            "gold": [
+              "phishing",
+              "ransomware",
+              "credentials",
+              "multi-factor authentication",
+              "zero trust",
+              "incident response",
+              "encryption",
+              "vulnerabilities",
+              "security awareness",
+              "data breach"
+            ],
+            "strict": {
+              "precision": 0.1,
+              "recall": 0.1,
+              "hits": 1,
+              "recalled_gold": 1
+            },
+            "soft": {
+              "precision": 0.3,
+              "recall": 0.2,
+              "hits": 3,
+              "recalled_gold": 2
+            }
+          },
+          {
+            "id": "kw-nutrition",
+            "predictions": [
+              "Mediterranean diet",
+              "observational studies",
+              "Mediterranean",
+              "cardiovascular health",
+              "limiting processed foods",
+              "studies",
+              "structured dietary pattern",
+              "emphasises vegetables",
+              "olive oil",
+              "added sugar"
+            ],
+            "gold": [
+              "mediterranean diet",
+              "cardiovascular health",
+              "whole grains",
+              "processed foods",
+              "clinical trial",
+              "participants",
+              "blood pressure",
+              "dietary pattern",
+              "fibre",
+              "public health"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.4,
+              "hits": 5,
+              "recalled_gold": 4
+            }
+          },
+          {
+            "id": "kw-transport",
+            "predictions": [
+              "add twelve electric",
+              "twelve electric buses",
+              "city council approved",
+              "public transport plan",
+              "council approved",
+              "approved a public",
+              "public transport",
+              "add twelve",
+              "twelve electric",
+              "electric buses"
+            ],
+            "gold": [
+              "city council",
+              "public transport",
+              "electric buses",
+              "tram lines",
+              "congestion",
+              "emissions",
+              "urban planning",
+              "accessibility",
+              "commuters",
+              "ticketing system"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.3,
+              "hits": 5,
+              "recalled_gold": 3
+            }
+          },
+          {
+            "id": "kw-astronomy",
+            "predictions": [
+              "Astronomers have detected",
+              "detected an exoplanet",
+              "exoplanet orbiting",
+              "orbiting a nearby",
+              "liquid water",
+              "water could exist",
+              "nearby star",
+              "habitable zone",
+              "host star",
+              "star"
+            ],
+            "gold": [
+              "astronomers",
+              "exoplanet",
+              "star",
+              "habitable zone",
+              "transit method",
+              "telescope",
+              "spectroscopy",
+              "atmosphere",
+              "biosignature",
+              "planetary system"
+            ],
+            "strict": {
+              "precision": 0.2,
+              "recall": 0.2,
+              "hits": 2,
+              "recalled_gold": 2
+            },
+            "soft": {
+              "precision": 0.5,
+              "recall": 0.3,
+              "hits": 5,
+              "recalled_gold": 3
+            }
+          }
+        ]
+      }
+    }
+  },
+  "sentiment": {
+    "dataset_size": 30,
+    "model": "VADER (NLTK lexicon + rule-based)",
+    "accuracy": 0.8667,
+    "macro_precision": 0.8897,
+    "macro_recall": 0.8667,
+    "macro_f1": 0.8644,
+    "per_class": {
+      "positive": {
+        "precision": 0.7692,
+        "recall": 1.0,
+        "f1": 0.8696,
+        "support": 10
+      },
+      "negative": {
+        "precision": 0.9,
+        "recall": 0.9,
+        "f1": 0.9,
+        "support": 10
+      },
+      "neutral": {
+        "precision": 1.0,
+        "recall": 0.7,
+        "f1": 0.8235,
+        "support": 10
+      }
+    },
+    "confusion_matrix": {
+      "positive": {
+        "positive": 10,
+        "negative": 0,
+        "neutral": 0
+      },
+      "negative": {
+        "positive": 1,
+        "negative": 9,
+        "neutral": 0
+      },
+      "neutral": {
+        "positive": 2,
+        "negative": 1,
+        "neutral": 7
+      }
+    },
+    "mean_confidence": 0.45,
+    "mean_latency_seconds": 0.0134,
+    "items": [
+      {
+        "id": "sent-01",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.8357,
+        "confidence": 0.8357
+      },
+      {
+        "id": "sent-02",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.8271,
+        "confidence": 0.8271
+      },
+      {
+        "id": "sent-03",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.8658,
+        "confidence": 0.8658
+      },
+      {
+        "id": "sent-04",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.9371,
+        "confidence": 0.9371
+      },
+      {
+        "id": "sent-05",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.128,
+        "confidence": 0.128
+      },
+      {
+        "id": "sent-06",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.9118,
+        "confidence": 0.9118
+      },
+      {
+        "id": "sent-07",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.7506,
+        "confidence": 0.7506
+      },
+      {
+        "id": "sent-08",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.908,
+        "confidence": 0.908
+      },
+      {
+        "id": "sent-09",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.7717,
+        "confidence": 0.7717
+      },
+      {
+        "id": "sent-10",
+        "gold": "positive",
+        "predicted": "positive",
+        "compound": 0.2716,
+        "confidence": 0.2716
+      },
+      {
+        "id": "sent-11",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.7096,
+        "confidence": 0.7096
+      },
+      {
+        "id": "sent-12",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.3612,
+        "confidence": 0.3612
+      },
+      {
+        "id": "sent-13",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.5574,
+        "confidence": 0.5574
+      },
+      {
+        "id": "sent-14",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.7506,
+        "confidence": 0.7506
+      },
+      {
+        "id": "sent-15",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.4019,
+        "confidence": 0.4019
+      },
+      {
+        "id": "sent-16",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.6708,
+        "confidence": 0.6708
+      },
+      {
+        "id": "sent-17",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.6249,
+        "confidence": 0.6249
+      },
+      {
+        "id": "sent-18",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.836,
+        "confidence": 0.836
+      },
+      {
+        "id": "sent-19",
+        "gold": "negative",
+        "predicted": "negative",
+        "compound": -0.4588,
+        "confidence": 0.4588
+      },
+      {
+        "id": "sent-20",
+        "gold": "negative",
+        "predicted": "positive",
+        "compound": 0.0534,
+        "confidence": 0.0534
+      },
+      {
+        "id": "sent-21",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-22",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-23",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-24",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-25",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-26",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-27",
+        "gold": "neutral",
+        "predicted": "positive",
+        "compound": 0.6369,
+        "confidence": 0.6369
+      },
+      {
+        "id": "sent-28",
+        "gold": "neutral",
+        "predicted": "negative",
+        "compound": -0.1531,
+        "confidence": 0.1531
+      },
+      {
+        "id": "sent-29",
+        "gold": "neutral",
+        "predicted": "neutral",
+        "compound": 0.0,
+        "confidence": 0.0
+      },
+      {
+        "id": "sent-30",
+        "gold": "neutral",
+        "predicted": "positive",
+        "compound": 0.0772,
+        "confidence": 0.0772
+      }
+    ]
+  },
+  "language": {
+    "dataset_size": 18,
+    "model": "langdetect Naive Bayes character n-gram classifier",
+    "accuracy": 1.0,
+    "mean_confidence": 1.0,
+    "reliable_rate": 1.0,
+    "per_language": {
+      "de": {
+        "accuracy": 1.0,
+        "support": 3
+      },
+      "en": {
+        "accuracy": 1.0,
+        "support": 3
+      },
+      "es": {
+        "accuracy": 1.0,
+        "support": 3
+      },
+      "fr": {
+        "accuracy": 1.0,
+        "support": 3
+      },
+      "it": {
+        "accuracy": 1.0,
+        "support": 3
+      },
+      "pt": {
+        "accuracy": 1.0,
+        "support": 3
+      }
+    },
+    "confusion": {
+      "en": {
+        "en": 3
+      },
+      "es": {
+        "es": 3
+      },
+      "fr": {
+        "fr": 3
+      },
+      "de": {
+        "de": 3
+      },
+      "it": {
+        "it": 3
+      },
+      "pt": {
+        "pt": 3
+      }
+    },
+    "mean_latency_seconds": 0.0024,
+    "items": [
+      {
+        "id": "lang-en-1",
+        "gold": "en",
+        "predicted": "en",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-en-2",
+        "gold": "en",
+        "predicted": "en",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-en-3",
+        "gold": "en",
+        "predicted": "en",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-es-1",
+        "gold": "es",
+        "predicted": "es",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-es-2",
+        "gold": "es",
+        "predicted": "es",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-es-3",
+        "gold": "es",
+        "predicted": "es",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-fr-1",
+        "gold": "fr",
+        "predicted": "fr",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-fr-2",
+        "gold": "fr",
+        "predicted": "fr",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-fr-3",
+        "gold": "fr",
+        "predicted": "fr",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-de-1",
+        "gold": "de",
+        "predicted": "de",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-de-2",
+        "gold": "de",
+        "predicted": "de",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-de-3",
+        "gold": "de",
+        "predicted": "de",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-it-1",
+        "gold": "it",
+        "predicted": "it",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-it-2",
+        "gold": "it",
+        "predicted": "it",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-it-3",
+        "gold": "it",
+        "predicted": "it",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-pt-1",
+        "gold": "pt",
+        "predicted": "pt",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-pt-2",
+        "gold": "pt",
+        "predicted": "pt",
+        "confidence": 1.0,
+        "reliable": true
+      },
+      {
+        "id": "lang-pt-3",
+        "gold": "pt",
+        "predicted": "pt",
+        "confidence": 1.0,
+        "reliable": true
+      }
+    ]
+  },
+  "summarisation": {
+    "dataset_size": 5,
+    "extractive_short": {
+      "method": "extractive",
+      "length": "short",
+      "dataset_size": 5,
+      "rouge1": 0.1715,
+      "rouge2": 0.0185,
+      "rougeL": 0.1185,
+      "bleu1": 0.0838,
+      "bleu4": 0.0083,
+      "mean_compression_percentage": 83.52,
+      "mean_latency_seconds": 0.0066,
+      "documents": [
+        {
+          "id": "sum-remote-work",
+          "summary": "Early studies found that many employees maintained or improved productivity when working from home, particularly on focused individual tasks.",
+          "reference": "Remote work can sustain productivity for focused tasks, but collaboration and informal learning may suffer. Hybrid models work best when managers match activities to the right setting and support clear goals and communication.",
+          "rouge1": 0.1923,
+          "rouge2": 0.0,
+          "rougeL": 0.1154,
+          "bleu1": 0.1008,
+          "bleu4": 0.0069,
+          "compression_percentage": 82.9,
+          "latency_seconds": 0.0065
+        },
+        {
+          "id": "sum-coral-reefs",
+          "summary": "Scientists are testing restoration methods that grow heat-tolerant coral fragments in nurseries and transplant them onto damaged reefs.",
+          "reference": "Coral restoration can help damaged reefs recover locally, but it cannot offset continued ocean warming. Effective conservation therefore requires emissions cuts, responsible coastal management and participation from local communities.",
+          "rouge1": 0.2083,
+          "rouge2": 0.0435,
+          "rougeL": 0.125,
+          "bleu1": 0.1426,
+          "bleu4": 0.0147,
+          "compression_percentage": 83.9,
+          "latency_seconds": 0.0067
+        },
+        {
+          "id": "sum-microplastics",
+          "summary": "Most particles originate from the breakdown of larger plastic items, synthetic textiles and tyre wear, rather than from a single obvious source.",
+          "reference": "Microplastics are widespread in freshwater and come from diverse sources such as textiles, tyres and plastic waste. Their health effects are uncertain, so reducing pollution requires better waste systems, filtration, product design and sustained monitoring.",
+          "rouge1": 0.2105,
+          "rouge2": 0.0,
+          "rougeL": 0.1053,
+          "bleu1": 0.1007,
+          "bleu4": 0.0068,
+          "compression_percentage": 81.0,
+          "latency_seconds": 0.0065
+        },
+        {
+          "id": "sum-public-libraries",
+          "summary": "Public libraries have always been more than buildings full of books.",
+          "reference": "Public libraries provide digital access, learning support and safe community space in addition to books. Their social value is often underestimated by loan statistics, and partnerships help them function as community hubs.",
+          "rouge1": 0.1395,
+          "rouge2": 0.0488,
+          "rougeL": 0.1395,
+          "bleu1": 0.0404,
+          "bleu4": 0.0065,
+          "compression_percentage": 90.4,
+          "latency_seconds": 0.0075
+        },
+        {
+          "id": "sum-vaccination",
+          "summary": "A vaccine may be safe and effective, but uptake will be low if people doubt the motives of health authorities or cannot easily reach a clinic.",
+          "reference": "Vaccination success depends on trust, access and communication as well as scientific effectiveness. Building confidence requires trusted local messengers, transparent reporting and sustained community engagement rather than one-off campaigns.",
+          "rouge1": 0.1071,
+          "rouge2": 0.0,
+          "rougeL": 0.1071,
+          "bleu1": 0.0344,
+          "bleu4": 0.0065,
+          "compression_percentage": 79.4,
+          "latency_seconds": 0.0056
+        }
+      ]
+    },
+    "extractive_medium": {
+      "method": "extractive",
+      "length": "medium",
+      "dataset_size": 5,
+      "rouge1": 0.2377,
+      "rouge2": 0.0329,
+      "rougeL": 0.1819,
+      "bleu1": 0.184,
+      "bleu4": 0.0132,
+      "mean_compression_percentage": 66.46,
+      "mean_latency_seconds": 0.0039,
+      "documents": [
+        {
+          "id": "sum-remote-work",
+          "summary": "Early studies found that many employees maintained or improved productivity when working from home, particularly on focused individual tasks. Hybrid arrangements attempt to combine the advantages of quiet home working with the social benefits of an office.",
+          "reference": "Remote work can sustain productivity for focused tasks, but collaboration and informal learning may suffer. Hybrid models work best when managers match activities to the right setting and support clear goals and communication.",
+          "rouge1": 0.2571,
+          "rouge2": 0.0,
+          "rougeL": 0.1714,
+          "bleu1": 0.1892,
+          "bleu4": 0.0082,
+          "compression_percentage": 66.7,
+          "latency_seconds": 0.0064
+        },
+        {
+          "id": "sum-coral-reefs",
+          "summary": "Coral reefs support an extraordinary share of marine biodiversity, yet rising sea temperatures are causing widespread bleaching. Scientists are testing restoration methods that grow heat-tolerant coral fragments in nurseries and transplant them onto damaged reefs.",
+          "reference": "Coral restoration can help damaged reefs recover locally, but it cannot offset continued ocean warming. Effective conservation therefore requires emissions cuts, responsible coastal management and participation from local communities.",
+          "rouge1": 0.1538,
+          "rouge2": 0.0317,
+          "rougeL": 0.1231,
+          "bleu1": 0.1429,
+          "bleu4": 0.0141,
+          "compression_percentage": 68.8,
+          "latency_seconds": 0.0029
+        },
+        {
+          "id": "sum-microplastics",
+          "summary": "Most particles originate from the breakdown of larger plastic items, synthetic textiles and tyre wear, rather than from a single obvious source. Reducing plastic pollution requires action at several levels: better waste collection, filters at wastewater treatment plants, product design that uses less disposable plastic, and international agreements that address transboundary pollution.",
+          "reference": "Microplastics are widespread in freshwater and come from diverse sources such as textiles, tyres and plastic waste. Their health effects are uncertain, so reducing pollution requires better waste systems, filtration, product design and sustained monitoring.",
+          "rouge1": 0.3218,
+          "rouge2": 0.0706,
+          "rougeL": 0.2529,
+          "bleu1": 0.2308,
+          "bleu4": 0.0153,
+          "compression_percentage": 55.2,
+          "latency_seconds": 0.0037
+        },
+        {
+          "id": "sum-public-libraries",
+          "summary": "Public libraries have always been more than buildings full of books. Digital services have expanded their reach, allowing readers to borrow e-books and access databases from home.",
+          "reference": "Public libraries provide digital access, learning support and safe community space in addition to books. Their social value is often underestimated by loan statistics, and partnerships help them function as community hubs.",
+          "rouge1": 0.2667,
+          "rouge2": 0.0345,
+          "rougeL": 0.2,
+          "bleu1": 0.2462,
+          "bleu4": 0.0173,
+          "compression_percentage": 76.5,
+          "latency_seconds": 0.0038
+        },
+        {
+          "id": "sum-vaccination",
+          "summary": "A vaccine may be safe and effective, but uptake will be low if people doubt the motives of health authorities or cannot easily reach a clinic. Health systems are therefore investing in community outreach, transparent reporting of side effects and partnerships with general practitioners.",
+          "reference": "Vaccination success depends on trust, access and communication as well as scientific effectiveness. Building confidence requires trusted local messengers, transparent reporting and sustained community engagement rather than one-off campaigns.",
+          "rouge1": 0.1892,
+          "rouge2": 0.0278,
+          "rougeL": 0.1622,
+          "bleu1": 0.1111,
+          "bleu4": 0.0109,
+          "compression_percentage": 65.1,
+          "latency_seconds": 0.0028
+        }
+      ]
+    }
+  }
+}

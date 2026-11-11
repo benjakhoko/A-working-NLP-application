@@ -1,0 +1,54 @@
+{% extends "auth_base.html" %}
+{% block auth_content %}
+<div class="auth-title">Sign in to your workspace</div>
+<p class="auth-subtitle">Continue analysing documents and reviewing saved results.</p>
+
+{% if registered %}
+<div id="registrationSuccess" class="notice notice-info mb-4" role="status">
+  <i class="fa-solid fa-circle-check"></i><span>Your account was created. Sign in to continue.</span>
+</div>
+{% endif %}
+
+<div id="authError" class="notice notice-danger mb-4 hidden" role="alert">
+  <i class="fa-solid fa-circle-exclamation"></i><span id="authErrorText"></span>
+</div>
+
+<form id="loginForm" class="auth-form" novalidate>
+  <div class="field" data-field="email">
+    <label class="label" for="email">Email address</label>
+    <input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="name@university.edu" required>
+    <div class="field-error" data-error></div>
+  </div>
+  <div class="field" data-field="password">
+    <div class="label-row">
+      <label class="label" for="password">Password</label>
+    </div>
+    <div class="input-group">
+      <input class="input" type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+      <button type="button" class="input-group-btn" data-toggle-password="password" aria-label="Show password">
+        <i class="fa-regular fa-eye"></i>
+      </button>
+    </div>
+    <div class="field-error" data-error></div>
+  </div>
+  <div class="checkbox-row mb-4">
+    <label class="inline-flex items-center gap-2 cursor-pointer">
+      <input type="checkbox" class="checkbox" id="remember" name="remember">
+      <span>Keep me signed in</span>
+    </label>
+    <span class="text-slate-400 text-[11px]">Sessions expire after 8 hours</span>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block" id="loginButton">
+    <span>Sign in</span><i class="fa-solid fa-arrow-right"></i>
+  </button>
+</form>
+
+<div class="auth-alt">
+  No account yet? <a class="link" href="{{ url_for('pages.register') }}">Create one</a>
+</div>
+
+<div class="auth-demo">
+  <i class="fa-solid fa-shield-halved mr-1"></i>
+  Passwords are hashed with PBKDF2-SHA256. This academic deployment stores no third-party credentials.
+</div>
+{% endblock %}

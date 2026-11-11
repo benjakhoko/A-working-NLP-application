@@ -1,0 +1,8 @@
+[
+  {"id": "trans-01", "source": "en", "target": "fr", "text": "The research team published its results in a scientific journal.", "reference": "L'équipe de recherche a publié ses résultats dans une revue scientifique."},
+  {"id": "trans-02", "source": "en", "target": "fr", "text": "Public transport reduces traffic and air pollution in the city centre.", "reference": "Les transports publics réduisent la circulation et la pollution de l'air dans le centre-ville."},
+  {"id": "trans-03", "source": "en", "target": "fr", "text": "Patients should consult a doctor before changing their medication.", "reference": "Les patients doivent consulter un médecin avant de changer leur médicament."},
+  {"id": "trans-04", "source": "en", "target": "fr", "text": "The government announced new funding for rural schools.", "reference": "Le gouvernement a annoncé de nouveaux financements pour les écoles rurales."},
+  {"id": "trans-05", "source": "en", "target": "fr", "text": "Climate change is a global challenge that requires international cooperation.", "reference": "Le changement climatique est un défi mondial qui exige une coopération internationale."},
+  {"id": "trans-06", "source": "en", "target": "fr", "text": "The library offers free access to digital resources for students.", "reference": "La bibliothèque offre un accès gratuit aux ressources numériques pour les étudiants."}
+]

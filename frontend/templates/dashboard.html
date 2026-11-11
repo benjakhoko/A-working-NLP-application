@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Dashboard</h1>
+    <p class="page-description">An overview of your document activity and natural language processing results.</p>
+  </div>
+  <div class="page-actions">
+    <a href="{{ url_for('pages.workspace') }}" class="btn btn-primary">
+      <i class="fa-solid fa-pen-nib"></i> Open workspace
+    </a>
+  </div>
+</div>
+
+<div class="stat-grid mb-4" id="statGrid">
+  {% for item in [
+    ('documents', 'Documents processed', 'fa-folder-open'),
+    ('analyses', 'Analyses performed', 'fa-chart-simple'),
+    ('keywords', 'Keywords extracted', 'fa-tags'),
+    ('summaries', 'Summaries generated', 'fa-align-left')
+  ] %}
+  <div class="stat-card">
+    <div class="stat-top">
+      <span class="stat-label">{{ item[1] }}</span>
+      <div class="stat-icon"><i class="fa-solid {{ item[2] }}"></i></div>
+    </div>
+    <div class="stat-value" data-stat="{{ item[0] }}"><span class="skeleton inline-block h-7 w-12 align-middle"></span></div>
+    <div class="stat-meta" data-stat-meta="{{ item[0] }}">&nbsp;</div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="dash-grid mb-4">
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <div class="section-title">Analysis activity</div>
+        <div class="section-sub">Completed and failed analyses over the last 14 days</div>
+      </div>
+      <span class="badge badge-neutral" id="activityTotal">—</span>
+    </div>
+    <div class="card-body">
+      <div class="chart-wrap"><canvas id="activityChart" aria-label="Analysis activity chart" role="img"></canvas></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <div class="section-title">Tool usage</div>
+        <div class="section-sub">Distribution across your analyses</div>
+      </div>
+    </div>
+    <div class="card-body" id="toolUsage">
+      <div class="stack-8">
+        <div class="skeleton h-4 w-full"></div>
+        <div class="skeleton h-4 w-4/5"></div>
+        <div class="skeleton h-4 w-3/5"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="two-col mb-4">
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <div class="section-title">Recent analyses</div>
+        <div class="section-sub">Latest completed and failed processing jobs</div>
+      </div>
+      <a href="{{ url_for('pages.history') }}" class="link text-[12px]">View all</a>
+    </div>
+    <div class="table-wrap" id="recentAnalyses">
+      <div class="p-4"><div class="skeleton h-10 w-full mb-2"></div><div class="skeleton h-10 w-full mb-2"></div><div class="skeleton h-10 w-full"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <div class="section-title">Recent activity</div>
+        <div class="section-sub">Account and workspace events</div>
+      </div>
+    </div>
+    <div class="card-body" id="recentActivity">
+      <div class="stack-8">
+        <div class="skeleton h-4 w-full"></div>
+        <div class="skeleton h-4 w-4/5"></div>
+        <div class="skeleton h-4 w-3/5"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="card">
+  <div class="card-header">
+    <div>
+      <div class="section-title">Quick access</div>
+      <div class="section-sub">Start a new analysis in the workspace</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="quick-tools">
+      <a class="quick-tool" href="{{ url_for('pages.workspace', tool='keywords') }}">
+        <div class="quick-tool-icon"><i class="fa-solid fa-tags"></i></div>
+        <div><div class="quick-tool-name">Keyword extraction</div><div class="quick-tool-desc">TF-IDF, RAKE, YAKE</div></div>
+      </a>
+      <a class="quick-tool" href="{{ url_for('pages.workspace', tool='summary') }}">
+        <div class="quick-tool-icon"><i class="fa-solid fa-align-left"></i></div>
+        <div><div class="quick-tool-name">Summarisation</div><div class="quick-tool-desc">Extractive &amp; abstractive</div></div>
+      </a>
+      <a class="quick-tool" href="{{ url_for('pages.workspace', tool='language') }}">
+        <div class="quick-tool-icon"><i class="fa-solid fa-language"></i></div>
+        <div><div class="quick-tool-name">Language detection</div><div class="quick-tool-desc">Identify with confidence</div></div>
+      </a>
+      <a class="quick-tool" href="{{ url_for('pages.workspace', tool='sentiment') }}">
+        <div class="quick-tool-icon"><i class="fa-solid fa-chart-simple"></i></div>
+        <div><div class="quick-tool-name">Sentiment analysis</div><div class="quick-tool-desc">VADER scoring</div></div>
+      </a>
+      <a class="quick-tool" href="{{ url_for('pages.workspace', tool='explain') }}">
+        <div class="quick-tool-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div><div class="quick-tool-name">Text explanation</div><div class="quick-tool-desc">Simplified wording</div></div>
+      </a>
+      <a class="quick-tool" href="{{ url_for('pages.workspace', tool='translate') }}">
+        <div class="quick-tool-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+        <div><div class="quick-tool-name">Translation</div><div class="quick-tool-desc">Multiple providers</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='vendor/chartjs/chart.umd.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

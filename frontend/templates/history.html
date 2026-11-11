@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Analysis history</h1>
+    <p class="page-description">Every processing job is recorded with its method, status and timestamp. Reopen, report or remove your own records.</p>
+  </div>
+  <div class="page-actions">
+    <a href="{{ url_for('pages.workspace') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New analysis</a>
+  </div>
+</div>
+
+<div class="inline-8 mb-3" id="historySummary">
+  <span class="badge badge-neutral badge-dot">— total</span>
+  <span class="badge badge-green badge-dot">— completed</span>
+  <span class="badge badge-red badge-dot">— failed</span>
+</div>
+
+<section class="card">
+  <div class="filter-bar">
+    <div class="field grow">
+      <label class="label" for="historySearch">Search</label>
+      <input class="input input-sm" type="search" id="historySearch" placeholder="Analysis title or document name…">
+    </div>
+    <div class="field">
+      <label class="label" for="historyType">Type</label>
+      <select class="select select-sm" id="historyType"><option value="">All types</option></select>
+    </div>
+    <div class="field">
+      <label class="label" for="historyStatus">Status</label>
+      <select class="select select-sm" id="historyStatus">
+        <option value="">All statuses</option>
+        <option value="completed">Completed</option>
+        <option value="failed">Failed</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="label" for="dateFrom">From</label>
+      <input class="input input-sm" type="date" id="dateFrom">
+    </div>
+    <div class="field">
+      <label class="label" for="dateTo">To</label>
+      <input class="input input-sm" type="date" id="dateTo">
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-primary btn-sm" id="applyFilters"><i class="fa-solid fa-filter"></i> Apply</button>
+      <button class="btn btn-ghost btn-sm" id="resetFilters">Reset</button>
+    </div>
+  </div>
+
+  <div class="table-wrap" id="historyTable">
+    <div class="p-4">
+      <div class="skeleton h-10 w-full mb-2"></div>
+      <div class="skeleton h-10 w-full mb-2"></div>
+      <div class="skeleton h-10 w-full mb-2"></div>
+      <div class="skeleton h-10 w-full"></div>
+    </div>
+  </div>
+  <div class="pagination" id="historyPagination" style="display:none"></div>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='js/history.js') }}"></script>
+{% endblock %}

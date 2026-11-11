@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="description" content="Intelligent Text Analysis System — keyword extraction, summarisation, language detection, sentiment, explanation and translation.">
+  <title>{{ page_title }} · {{ app_name }}</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/fontawesome/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body class="app-body" data-page="{{ active_page or '' }}" data-user-id="{{ current_user.id if current_user else '' }}">
+  <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+    <div class="sidebar-brand">
+      <div class="brand-mark">Va</div>
+      <div>
+        <div class="brand-name">Verba</div>
+        <div class="brand-sub">Text Analysis</div>
+      </div>
+    </div>
+
+    <div class="sidebar-scroll">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Workspace</div>
+        <a class="nav-link {% if active_page == 'dashboard' %}active{% endif %}" href="{{ url_for('pages.dashboard') }}">
+          <i class="fa-solid fa-grid-2"></i><span>Dashboard</span>
+        </a>
+        <a class="nav-link {% if active_page == 'workspace' %}active{% endif %}" href="{{ url_for('pages.workspace') }}">
+          <i class="fa-solid fa-pen-nib"></i><span>Text workspace</span>
+        </a>
+        <a class="nav-link {% if active_page == 'documents' %}active{% endif %}" href="{{ url_for('pages.documents') }}">
+          <i class="fa-solid fa-folder-open"></i><span>Documents</span>
+        </a>
+        <a class="nav-link {% if active_page == 'history' %}active{% endif %}" href="{{ url_for('pages.history') }}">
+          <i class="fa-solid fa-clock-rotate-left"></i><span>Analysis history</span>
+        </a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">NLP tools</div>
+        <a class="nav-link" href="{{ url_for('pages.workspace', tool='keywords') }}"><i class="fa-solid fa-tags"></i><span>Keywords</span></a>
+        <a class="nav-link" href="{{ url_for('pages.workspace', tool='summary') }}"><i class="fa-solid fa-align-left"></i><span>Summarisation</span></a>
+        <a class="nav-link" href="{{ url_for('pages.workspace', tool='language') }}"><i class="fa-solid fa-language"></i><span>Language detection</span></a>
+        <a class="nav-link" href="{{ url_for('pages.workspace', tool='sentiment') }}"><i class="fa-solid fa-chart-simple"></i><span>Sentiment</span></a>
+        <a class="nav-link" href="{{ url_for('pages.workspace', tool='explain') }}"><i class="fa-solid fa-lightbulb"></i><span>Explanation</span></a>
+        <a class="nav-link" href="{{ url_for('pages.workspace', tool='translate') }}"><i class="fa-solid fa-arrow-right-arrow-left"></i><span>Translation</span></a>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Account</div>
+        <a class="nav-link {% if active_page == 'profile' %}active{% endif %}" href="{{ url_for('pages.profile') }}">
+          <i class="fa-regular fa-user"></i><span>Profile &amp; settings</span>
+        </a>
+        {% if current_user and current_user.is_admin %}
+        <a class="nav-link {% if active_page == 'admin' %}active{% endif %}" href="{{ url_for('pages.admin_users') }}">
+          <i class="fa-solid fa-shield-halved"></i><span>User administration</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <a class="sidebar-user" href="{{ url_for('pages.profile') }}">
+        <div class="avatar">{{ current_user.full_name[0]|upper if current_user else 'U' }}</div>
+        <div class="min-w-0">
+          <div class="sidebar-user-name text-truncate">{{ current_user.full_name if current_user else 'Account' }}</div>
+          <div class="sidebar-user-role">{{ 'Administrator' if current_user and current_user.is_admin else 'Member' }}</div>
+        </div>
+        <i class="fa-solid fa-chevron-right ml-auto text-[10px] text-slate-500"></i>
+      </a>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <div class="main-shell">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="topbar-crumb">
+          <span class="hidden sm:inline">Verba</span>
+          <span class="hidden sm:inline">/</span>
+          <div class="topbar-title">{{ page_title }}</div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <a href="{{ url_for('pages.workspace') }}" class="btn btn-secondary btn-sm hidden sm:inline-flex">
+          <i class="fa-solid fa-plus"></i> New analysis
+        </a>
+        <a href="{{ url_for('pages.profile') }}" class="icon-btn" title="Profile" aria-label="Profile">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <button class="icon-btn" data-logout title="Sign out" aria-label="Sign out">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="page">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="{{ url_for('static', filename='js/api.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block page_scripts %}{% endblock %}
+</body>
+</html>

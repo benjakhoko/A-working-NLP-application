@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <h1 class="page-title">User administration</h1>
+    <p class="page-description">Administrator view of registered accounts. Role and status changes are audit-logged. Administrators cannot modify their own role or status.</p>
+  </div>
+</div>
+
+<div class="stat-grid mb-4">
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-label">Registered users</span><div class="stat-icon"><i class="fa-solid fa-users"></i></div></div>
+    <div class="stat-value" id="adminTotalUsers">—</div>
+    <div class="stat-meta">All accounts</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-label">Administrators</span><div class="stat-icon"><i class="fa-solid fa-shield-halved"></i></div></div>
+    <div class="stat-value" id="adminTotalAdmins">—</div>
+    <div class="stat-meta">Authorised roles</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-label">Total analyses</span><div class="stat-icon"><i class="fa-solid fa-chart-simple"></i></div></div>
+    <div class="stat-value" id="adminTotalAnalyses">—</div>
+    <div class="stat-meta">Across all users</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-top"><span class="stat-label">Your role</span><div class="stat-icon"><i class="fa-solid fa-user-shield"></i></div></div>
+    <div class="stat-value text-[18px] pt-2">Administrator</div>
+    <div class="stat-meta">Full system access</div>
+  </div>
+</div>
+
+<section class="card">
+  <div class="filter-bar">
+    <div class="field grow">
+      <label class="label" for="adminSearch">Search users</label>
+      <input class="input input-sm" type="search" id="adminSearch" placeholder="Name or email address…">
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-secondary btn-sm" id="refreshUsers"><i class="fa-solid fa-rotate"></i> Refresh</button>
+    </div>
+  </div>
+  <div class="table-wrap" id="adminTable">
+    <div class="p-4"><div class="skeleton h-10 w-full mb-2"></div><div class="skeleton h-10 w-full"></div></div>
+  </div>
+  <div class="pagination" id="adminPagination" style="display:none"></div>
+</section>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

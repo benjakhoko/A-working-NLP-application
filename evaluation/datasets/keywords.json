@@ -1,0 +1,138 @@
+[
+  {
+    "id": "kw-ai-health",
+    "domain": "Healthcare AI",
+    "text": "Artificial intelligence is changing how hospitals deliver patient care. Machine learning models can analyse medical imaging and support early diagnosis with high accuracy. Clinicians welcome faster triage, but they remain concerned about data privacy and model interpretability. A model that cannot explain its recommendations is difficult to trust in a clinical setting. Researchers are therefore developing transparent algorithms and running clinical validation studies before deployment. Hospitals are also drafting governance rules that define who remains accountable when an automated system makes a mistake. The technology is promising, yet careful evaluation is essential because patient safety depends on reliable evidence rather than marketing claims.",
+    "gold_keywords": [
+      "artificial intelligence",
+      "machine learning",
+      "medical imaging",
+      "diagnosis",
+      "clinicians",
+      "data privacy",
+      "interpretability",
+      "algorithms",
+      "clinical validation",
+      "patient safety"
+    ]
+  },
+  {
+    "id": "kw-climate",
+    "domain": "Climate and energy",
+    "text": "Renewable energy is expanding faster than many analysts expected. Solar power and wind farms now supply a growing share of electricity in several countries, while battery technology is beginning to solve the problem of grid storage. The decline in carbon emissions depends not only on new generation capacity but also on climate policy that prices pollution and supports investment. Critics argue that fossil fuels will remain part of the energy mix for years, especially where electricity demand is rising quickly. Supporters respond that the cost of solar and wind has fallen sharply and that a modern grid can balance variable output. The debate now focuses on speed, fairness and the reliability of the transition.",
+    "gold_keywords": [
+      "renewable energy",
+      "solar power",
+      "wind farms",
+      "electricity",
+      "battery technology",
+      "grid storage",
+      "carbon emissions",
+      "climate policy",
+      "investment",
+      "fossil fuels"
+    ]
+  },
+  {
+    "id": "kw-economics",
+    "domain": "Macroeconomics",
+    "text": "Inflation has slowed but remains above the target set by the central bank. Policymakers raised interest rates to cool consumer spending and bring prices under control, yet the labour market is still tight and wages are growing. Economists disagree about whether the economy can avoid a recession or whether a period of weak growth is inevitable. Supply chain disruptions have eased, which helps goods prices, but services inflation is proving persistent. The central bank must balance the risk of tightening too much against the risk of allowing inflation to become entrenched. Households, meanwhile, are adjusting their budgets and delaying large purchases while they wait for monetary policy to take effect.",
+    "gold_keywords": [
+      "inflation",
+      "central bank",
+      "interest rates",
+      "consumer spending",
+      "labour market",
+      "wages",
+      "recession",
+      "supply chain",
+      "services inflation",
+      "monetary policy"
+    ]
+  },
+  {
+    "id": "kw-education",
+    "domain": "Education technology",
+    "text": "Online learning has become a permanent part of higher education, even though most courses now use a blended format. Teachers report that student engagement depends on clear structure, regular feedback and opportunities for discussion. Formative assessment, such as short weekly quizzes, helps students identify gaps before high-stakes examinations. Digital literacy and accessibility are also essential: a platform that excludes students with disabilities is not a neutral tool. Universities are investing in teacher training so that technology supports learning outcomes rather than simply reproducing lectures online. The most successful programmes combine careful curriculum design with human contact, because isolated video lessons rarely sustain motivation over a full semester.",
+    "gold_keywords": [
+      "online learning",
+      "higher education",
+      "blended learning",
+      "student engagement",
+      "feedback",
+      "formative assessment",
+      "digital literacy",
+      "accessibility",
+      "teacher training",
+      "learning outcomes"
+    ]
+  },
+  {
+    "id": "kw-cybersecurity",
+    "domain": "Cybersecurity",
+    "text": "Phishing remains one of the most common ways for attackers to gain initial access to a corporate network. A convincing email can persuade an employee to reveal credentials, after which ransomware may spread across shared drives. Security teams are responding with multi-factor authentication, zero trust architecture and better incident response plans. Encryption protects data in transit and at rest, but it cannot compensate for unpatched vulnerabilities or weak passwords. Regular security awareness training helps, although it is not a substitute for technical controls. Organisations that rehearse a data breach scenario tend to recover faster, because they already know who is responsible for containment, communication and forensic investigation.",
+    "gold_keywords": [
+      "phishing",
+      "ransomware",
+      "credentials",
+      "multi-factor authentication",
+      "zero trust",
+      "incident response",
+      "encryption",
+      "vulnerabilities",
+      "security awareness",
+      "data breach"
+    ]
+  },
+  {
+    "id": "kw-nutrition",
+    "domain": "Nutrition science",
+    "text": "The Mediterranean diet is associated with better cardiovascular health in many observational studies. It emphasises vegetables, fruit, whole grains, legumes, olive oil and fish while limiting processed foods and added sugar. A recent clinical trial assigned participants to a structured dietary pattern and measured blood pressure, weight and cholesterol over twelve months. Adherence was strongest when people received practical cooking advice and regular contact with a dietitian. Fibre intake increased, and many participants reported improved energy levels. Researchers caution that dietary patterns interact with income, culture and access to fresh food, so public health advice must be adapted to local circumstances rather than presented as a single universal prescription.",
+    "gold_keywords": [
+      "mediterranean diet",
+      "cardiovascular health",
+      "whole grains",
+      "processed foods",
+      "clinical trial",
+      "participants",
+      "blood pressure",
+      "dietary pattern",
+      "fibre",
+      "public health"
+    ]
+  },
+  {
+    "id": "kw-transport",
+    "domain": "Urban transport",
+    "text": "The city council approved a public transport plan that will add twelve electric buses and extend two tram lines by 2027. Officials expect the investment to reduce congestion and lower emissions in the city centre. Urban planning experts welcomed the scheme but warned that accessibility must be designed in from the start, including level boarding and reliable information for passengers with disabilities. Local businesses asked for a clearer construction timeline because roadworks can disrupt deliveries. The plan also includes bus priority lanes and a unified ticketing system that allows commuters to transfer between modes without paying twice. Success will depend on frequent service, safe stations and honest reporting of costs.",
+    "gold_keywords": [
+      "city council",
+      "public transport",
+      "electric buses",
+      "tram lines",
+      "congestion",
+      "emissions",
+      "urban planning",
+      "accessibility",
+      "commuters",
+      "ticketing system"
+    ]
+  },
+  {
+    "id": "kw-astronomy",
+    "domain": "Astronomy",
+    "text": "Astronomers have detected an exoplanet orbiting a nearby star within the habitable zone, where liquid water could exist on the surface. The discovery used the transit method, which measures the small dip in starlight as a planet passes in front of its host star. Follow-up observations with a ground-based telescope and spectroscopy will help estimate the atmosphere and search for a biosignature. The planetary system is unusual because the planet is larger than Earth but smaller than Neptune, placing it in a category that is poorly understood. Further observations are needed before anyone can claim that the world is habitable, and the team has been careful to distinguish evidence from speculation.",
+    "gold_keywords": [
+      "astronomers",
+      "exoplanet",
+      "star",
+      "habitable zone",
+      "transit method",
+      "telescope",
+      "spectroscopy",
+      "atmosphere",
+      "biosignature",
+      "planetary system"
+    ]
+  }
+]

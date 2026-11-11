@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <div>
+    <div class="inline-8 mb-2">
+      <a href="{{ url_for('pages.history') }}" class="text-[12px] text-slate-500 hover:text-slate-800"><i class="fa-solid fa-arrow-left mr-1"></i> Analysis history</a>
+      <span class="badge badge-neutral" id="analysisTypeBadge">Loading</span>
+      <span class="badge badge-neutral" id="analysisStatusBadge">—</span>
+    </div>
+    <h1 class="page-title" id="analysisTitle">Analysis result</h1>
+    <p class="page-description" id="analysisSubtitle">Loading the saved analysis record…</p>
+  </div>
+  <div class="page-actions">
+    <button class="btn btn-secondary" id="copyAnalysisResult"><i class="fa-regular fa-copy"></i> Copy result</button>
+    <button class="btn btn-primary" id="downloadAnalysisReport"><i class="fa-solid fa-file-pdf"></i> Download report</button>
+  </div>
+</div>
+
+<div id="analysisPage" data-analysis-id="{{ analysis_id }}">
+  <section class="card mb-4">
+    <div class="card-header">
+      <div class="section-title">Result</div>
+      <span class="badge badge-neutral" id="analysisAlgorithm">—</span>
+    </div>
+    <div class="result-meta-line" id="analysisMeta"></div>
+    <div class="result-body" id="analysisResultBody">
+      <div class="result-empty">
+        <span class="spinner spinner-dark" style="width:22px;height:22px;border-width:2.5px;margin-bottom:12px"></span>
+        <div class="text-[13px] font-medium text-slate-700">Loading saved analysis…</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" id="sourceCard" style="display:none">
+    <div class="card-header">
+      <div class="section-title">Source text</div>
+      <span class="text-[11.5px] text-slate-500" id="sourceMeta"></span>
+    </div>
+    <div class="card-body">
+      <pre class="result-quote text-[12.5px] whitespace-pre-wrap max-h-[420px] overflow-y-auto m-0" id="analysisSourceText"></pre>
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename='js/results.js') }}"></script>
+<script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+{% endblock %}
