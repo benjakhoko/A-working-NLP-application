@@ -82,7 +82,7 @@ The interface brand is “Verba”, and the application uses Flask, SQLAlchemy, 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/benjakhoko/NLP-Smart-Analyzer.git
+git clone https://github.com/benjakhoko/A- working- nlp-application.git
 cd NLP-Smart-Analyzer
 ```
 
